@@ -9,11 +9,18 @@
 </head>
 
 <body>
- 
-  <ul class="no-translate">
-    <li><button class="btn3" onclick="translatePage('en')">Inglés</button></li>
+
+  <!-- <ul class=" no-translate">
+    <li><button class="btn3" onclick="translatePage('ja')">Japones</button></li>
     <li><button class="btn3" onclick="translatePage('es')">Español</button></li>
+  </ul> -->
+
+  <ul class="no-translate">
+  
+    <li><button class="btn3 translate-button no-translate" data-language="ja">Japonés</button></li>
+    <li><button class="btn3 translate-button no-translate" data-language="es">Español</button></li>
   </ul>
+
 
   <!-- Agregamos el link de de la API para la traduccion -->
   <script src="JS/Api-traductor.js"> </script>
