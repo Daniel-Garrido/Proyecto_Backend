@@ -9,7 +9,7 @@ function decodeHTMLEntities(text) {
     textarea.innerHTML = text;
     return textarea.value;
 }
-
+//funcion asincrona 
 async function translateText(text, targetLanguage) {
     const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;//api de google translate
    
@@ -33,12 +33,28 @@ async function translateText(text, targetLanguage) {
     }
 }
 
+//funcion asincrona
 async function translatePage(targetLanguage) {
     // Function to get all text nodes
     function getTextNodes(node) {
         const textNodes = [];
         if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim() !== '') {
-            textNodes.push(node);
+            // Check if the parent node or any ancestor has the class 'no-translate'
+            let currentElement = node.parentElement;
+            let skipTranslation = false;
+
+           //agregamos una clase para los elementos que no serán traducidos 
+            while (currentElement) {
+                if (currentElement.classList && currentElement.classList.contains('no-translate')) {
+                    skipTranslation = true;
+                    break;
+                }
+                currentElement = currentElement.parentElement;
+            }
+
+            if (!skipTranslation) {
+                textNodes.push(node);
+            }
         } else {
             for (let child of node.childNodes) {
                 textNodes.push(...getTextNodes(child));

@@ -11,7 +11,6 @@
 </head>
 
 <body>
-   
     <?php include "traductor.php"; ?>
        
 
@@ -22,7 +21,7 @@
 
     <!-- Mostrar productos de la base de datos -->
 
-    <div class="productos">
+    <div class="productos no-translate">
         <?php 
         require "LOGIN/conexion.php";
         $todos_datos = "SELECT * from productos order by id ASC";
@@ -32,16 +31,17 @@
             $productId = $fila["id"];
             $productPrice = $fila["Precio"];
             ?>
-            <div class="contenedorfoto">
-                <img class="imagentienda" src="LOGIN/<?php echo $fila["ruta"]; ?>"><br><br>
-                <span class="spantienda"><?php echo $fila["Nombre"]; ?></span><br>
-                <span class="spantienda"><?php echo "$" . $fila["Precio"]; ?></span><br><br>
+            <div class="contenedorfoto no-translate">
+                <img class="imagentienda no-translate" src="LOGIN/<?php echo $fila["ruta"]; ?>"><br><br>
+                <span class="spantienda no-translate"><?php echo $fila["Nombre"]; ?></span><br>
+                <span class="spantienda no-translate"><?php echo "$" . $fila["Precio"]; ?></span><br><br>
                 
-                <!-- Incluir el botÃģn de PayPal -->
+                <!-- Incluir el btn de PayPal -->
                 <?php 
-                include 'config.php';
-                include 'paypalCheckout.php'; 
+                include 'Config.php';
+                include 'PayPalCheckout.php'; 
                 ?>
+
             </div>
             <?php
         }
