@@ -4,7 +4,7 @@ session_start();
 $usuario = $_POST["username"];
 $contrasena = $_POST["password"];
 
-echo $usuario . "<br>" . $contrasena;
+//echo $usuario . "<br>" . $contrasena;
 
 
 require "conexion.php";
@@ -28,4 +28,3 @@ location.href = 'UsuarioContraseña.php?errorusuario=SI';
 
 mysqli_free_result($resultado);
 mysqli_close($conectar);
-?>

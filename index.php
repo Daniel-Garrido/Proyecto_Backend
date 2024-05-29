@@ -37,11 +37,12 @@
                 <span class="spantienda no-translate"><?php echo $fila["Nombre"]; ?></span><br>
                 <span class="spantienda no-translate"><?php echo "$" . $fila["Precio"]; ?></span><br><br>
                 
-                <!-- Incluir el botÃģn de PayPal -->
+                <!-- Incluir el btn de PayPal -->
                 <?php 
-                include 'config.php';
-                include 'paypalCheckout.php'; 
+                include 'Config.php';
+                include 'PayPalCheckout.php'; 
                 ?>
+
             </div>
             <?php
         }
